@@ -16,7 +16,19 @@ $content = $_POST['content'];
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!忘れがち
 require_once('functions.php');
+require_once('dbconnect.php');
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+//実行するsql文の準備
+$sql = 'INSERT INTO surveys (name,email,content,created_at)VALUES(:name, :email, :content, now())';
+
+// SQL文の実行準備
+$stmt = $dbh->prepare($sql);
+$stmt->bindParam(':name', $username, PDO::PARAM_STR);
+$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+$stmt->bindParam(':content', $content, PDO::PARAM_STR);
+//SQL文を実行
+$stmt->execute();
 
 
 
