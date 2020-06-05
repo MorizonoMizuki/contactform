@@ -33,14 +33,16 @@ var_dump($resurts);
 </head>
 
 <body>
-
-<?php for ($i = 0; $i < 10; $i++) { ?>
+     <?php foreach($resurts as $record) { ?>
+    
       <div>
-        <p>ID: 1</p>
-        <p>名前：〇〇</p>
-        <p>メールアドレス：longwangc@gmail.com</p>
-        <p>お問い合わせ内容：</p>
+        <p>ID: <?= $record['id']; ?></p>
+        <p>名前：<?= $record['name']; ?></p>
+        <p>メールアドレス：<?= $record['email']; ?></p>
+        <p>お問い合わせ内容：<?= $record['content']; ?></p>
       </div>
-    <?php } ?>
+
+      <?php } ?>
+    
 </body>
 </html>

@@ -25,4 +25,5 @@ try {
 } catch (\PDOException $e) {
     //接続に失敗した場合
     var_dump($e->getMessage());
+    echo 'ERROR';
 }
